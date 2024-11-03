@@ -1,0 +1,15 @@
+version: '3.8'  # Optional, can be removed
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app  # Bind mount the current directory to /app in the container
+    ports:
+      - "5000:5000"  # Map port 5000 in the container to port 5000 on the host
+    environment:
+      - NODE_ENV=development
+      - PORT=5000
+      - HOST=0.0.0.0
